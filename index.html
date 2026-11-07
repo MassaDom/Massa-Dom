@@ -114,6 +114,7 @@
                     </div>
                 </div>
 
+                <a href="#galerie" class="hover:text-deep-green transition-colors">Galerie</a>
                 <a href="#lieux" class="hover:text-deep-green transition-colors">Lieux</a>
             </div>
 
@@ -137,6 +138,7 @@
             <a href="#details-soins" onclick="toggleMobileMenu()" class="italic">Le détail des soins</a>
             <a href="#tarifs" onclick="toggleMobileMenu()" class="italic">Le détail des tarifs</a>
             <div class="h-px w-12 bg-deep-green/20"></div>
+            <a href="#galerie" onclick="toggleMobileMenu()">Galerie</a>
             <a href="#lieux" onclick="toggleMobileMenu()">Mes lieux de pratique</a>
         </div>
     </div>
@@ -199,100 +201,4 @@
                     <div class="space-y-2 border-t border-stone-100 pt-4">
                         <div class="flex justify-between font-medium text-stone-700"><span>60 min</span><span class="text-deep-green font-bold">80 €</span></div>
                         <div class="flex justify-between font-medium text-stone-700"><span>90 min</span><span class="text-deep-green font-bold">110 €</span></div>
-                        <div class="flex justify-between font-medium text-stone-700"><span>120 min</span><span class="text-deep-green font-bold">140 €</span></div>
-                    </div>
-                </div>
-                <div class="bg-white p-8 rounded-[2rem] shadow-sm border border-stone-100 flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-2xl font-serif text-deep-green mb-3 italic">Massage Japonais (Kobido)</h3>
-                        <p class="text-stone-600 text-sm mb-6">Soin liftant, sculptant et énergisant du visage.</p>
-                    </div>
-                    <div class="space-y-2 border-t border-stone-100 pt-4">
-                        <div class="flex justify-between font-medium text-stone-700"><span>60 min</span><span class="text-deep-green font-bold">80 €</span></div>
-                    </div>
-                </div>
-                <div class="bg-white p-8 rounded-[2rem] shadow-sm border border-stone-100 flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-2xl font-serif text-deep-green mb-3 italic">Réflexologie Plantaire</h3>
-                        <p class="text-stone-600 text-sm mb-6">Stimulation des zones réflexes pour relancer l'énergie vitale.</p>
-                    </div>
-                    <div class="space-y-2 border-t border-stone-100 pt-4">
-                        <div class="flex justify-between font-medium text-stone-700"><span>60 min</span><span class="text-deep-green font-bold">80 €</span></div>
-                    </div>
-                </div>
-                <div class="bg-white p-8 rounded-[2rem] shadow-2xl border-2 border-deep-green/30 flex flex-col justify-between relative overflow-hidden">
-                    <div>
-                        <div class="absolute top-4 right-4 bg-deep-green text-white text-[9px] uppercase tracking-widest px-3 py-1 rounded-full font-bold">Complet</div>
-                        <h3 class="text-2xl font-serif text-deep-green mb-3 italic">Abonnement Annuel</h3>
-                        <p class="text-stone-600 text-sm mb-6">12 séances de 90 min pour un accompagnement régulier.</p>
-                    </div>
-                    <div class="space-y-2 border-t border-stone-100 pt-4">
-                        <div class="flex justify-between font-medium text-stone-700 items-center"><span>12 séances</span><span class="text-deep-green font-bold text-xl">1 100 €</span></div>
-                        <p class="text-xs text-stone-400 italic text-right">Possibilité de règlement en 3 fois</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION LIEUX -->
-    <section id="lieux" class="py-24 text-center">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-serif text-deep-green mb-12">Lieux d'intervention</h2>
-            <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                <div class="p-10 bg-white rounded-[2rem] border border-stone-50 shadow-sm">
-                    <h3 class="font-serif text-xl mb-1">Crossfit Grillen</h3>
-                    <p class="text-deep-green text-[10px] font-bold uppercase tracking-widest">Colmar</p>
-                </div>
-                <div class="p-10 bg-white rounded-[2rem] border border-stone-50 shadow-sm">
-                    <h3 class="font-serif text-xl mb-1">À Domicile</h3>
-                    <p class="text-deep-green text-[10px] font-bold uppercase tracking-widest">Colmar & environs</p>
-                </div>
-                <div class="p-10 bg-white rounded-[2rem] border border-stone-50 shadow-sm">
-                    <h3 class="font-serif text-xl mb-1">Centres Partenaires</h3>
-                    <p class="text-deep-green text-[10px] font-bold uppercase tracking-widest">Selon agenda</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer-container">
-        <img src="https://lh3.googleusercontent.com/p/AF1QipM6WQn9aUz7c3QHmWzT_rM-gfDMZM5bjmG4tJkE=s1200" class="footer-bg-image" alt="Benoit Massa Dom">
-        <div class="footer-content-overlay text-white text-center">
-            <h3 class="text-3xl font-serif gold-outline mb-4">Massa Dom</h3>
-            <p class="text-xl tracking-[0.2em] mb-8">06 77 09 69 90</p>
-            <div class="bg-white p-3 rounded-2xl inline-block mb-4 shadow-2xl">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.instagram.com/massa.dom/" alt="QR Insta">
-            </div>
-        </div>
-    </footer>
-
-    <!-- MODALE RDV -->
-    <div id="booking-modal" class="modal">
-        <div class="modal-card text-center shadow-2xl">
-            <h3 class="text-2xl font-serif text-deep-green mb-8 italic">Prendre rendez-vous</h3>
-            <div class="space-y-4">
-                <a href="https://cal.com/massa-dom" target="_blank" rel="noopener noreferrer" class="block p-5 bg-deep-green text-white rounded-2xl font-bold hover:bg-stone-800 transition-all shadow-md uppercase tracking-widest text-xs">Réserver sur l'agenda (Cal.com)</a>
-                <a href="tel:+33677096990" class="block p-5 bg-stone-100 text-stone-800 rounded-2xl font-bold hover:bg-stone-200 transition-all shadow-sm uppercase tracking-widest text-xs">Appeler Benoit (06 77 09 69 90)</a>
-                <button onclick="closeModals()" class="mt-6 text-stone-400 hover:text-stone-900 transition-colors text-xs underline">Fermer la fenêtre</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function openBooking() { closeModals(); document.getElementById('booking-modal').style.display = 'block'; document.body.style.overflow = 'hidden'; }
-        function closeModals() { 
-            document.getElementById('booking-modal').style.display = 'none'; 
-            document.getElementById('mobile-menu-overlay').style.display = 'none'; 
-            document.body.style.overflow = 'auto'; 
-        }
-        function toggleMobileMenu() { 
-            const m = document.getElementById('mobile-menu-overlay'); 
-            const isV = m.style.display === 'flex'; 
-            m.style.display = isV ? 'none' : 'flex'; 
-            document.body.style.overflow = isV ? 'auto' : 'hidden'; 
-        }
-    </script>
-</body>
-</html>
+                        <div class="flex justify-between font-medium text-stone-700
