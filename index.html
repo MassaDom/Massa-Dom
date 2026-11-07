@@ -1,25 +1,21 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta name="google-site-verification" content="DBQXfGJhz_bfTt-V5TVvst0trTV6m4e-nCBb8zhbf9o" />
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Massa Dom | Reconnectez-vous à l'essentiel</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; background-color: #fdfbf7; }
-        h1, h2, h3, .font-serif { font-family: 'Playfair+Display', serif; }
+        h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
         
         .text-deep-green { color: #005C3D; }
         .bg-deep-green { background-color: #005C3D; }
         .bg-soft-green { background-color: #f0f5f2; }
         
-        /* Ajustement précis de la hauteur de défilement pour éviter les chevauchements sous le menu fixe */
-        section { scroll-margin-top: 110px; }
+        section { scroll-margin-top: 100px; }
 
-        /* Styles du Filigrane (Watermark) */
         .watermark-container { 
             position: relative; 
             display: inline-block; 
@@ -37,7 +33,6 @@
             pointer-events: none;
         }
 
-        /* Menu déroulant Bureau */
         .dropdown { position: relative; display: inline-block; }
         .dropdown-content {
             display: none;
@@ -70,7 +65,6 @@
         .glass { background: rgba(253, 251, 247, 0.95); backdrop-filter: blur(12px); }
         .gold-outline { color: #1c1917; -webkit-text-stroke: 0.8px #b38728; paint-order: stroke fill; }
         
-        /* Menu Mobile */
         #mobile-menu-overlay {
             display: none; 
             position: fixed; 
@@ -86,58 +80,30 @@
 
         .footer-container { position: relative; background-color: #001a11; overflow: hidden; width: 100%; }
         .footer-bg-image { width: 100%; height: auto; display: block; opacity: 0.4; }
-        /* Suppression du filtre vert dans l'overlay pour un fondu sombre neutre et chic */
         .footer-content-overlay {
             position: absolute; inset: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 100%);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 92, 61, 0.4) 100%);
             display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem;
         }
         
-        /* Modale avec centrage parfait */
-        .modal { 
-            display: none; 
-            position: fixed; 
-            inset: 0; 
-            z-index: 100; 
-            background: rgba(28, 25, 23, 0.8); 
-            backdrop-filter: blur(8px); 
-            align-items: center; 
-            justify-content: center;
-            padding: 1rem;
-        }
-        .modal-card { 
-            position: relative; 
-            background: white; 
-            padding: 2.5rem; 
-            border-radius: 2.5rem; 
-            width: 100%; 
-            max-width: 520px; 
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        }
-
-        /* Effet de surbrillance pour la recherche */
-        .search-highlight {
-            background-color: rgba(251, 191, 36, 0.3);
-            border-radius: 4px;
-            padding: 0 2px;
-        }
+        .modal { display: none; position: fixed; inset: 0; z-index: 100; background: rgba(28, 25, 23, 0.8); backdrop-filter: blur(8px); }
+        .modal-card { position: relative; margin: 10vh auto; background: white; padding: 2.5rem; border-radius: 2.5rem; width: 90%; max-width: 500px; }
     </style>
 </head>
-<body class="bg-cream text-stone-800">
+<body class="bg-[#fdfbf7] text-stone-800">
 
-    <!-- NAVIGATION / DASHBOARD SUPÉRIEUR (Corrigé et aéré) -->
+    <!-- NAVIGATION -->
     <header class="fixed w-full z-50 glass border-b border-stone-100">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
             <a href="#accueil" class="flex items-center space-x-3 shrink-0">
                 <img src="https://vcard.e-com-emma.com/wp-content/uploads/logo-massadom-1.webp" alt="Logo Massa Dom" class="w-10 h-10 object-contain">
                 <span class="text-xl font-serif font-bold gold-outline tracking-wider uppercase">MASSA DOM</span>
             </a>
             
-            <!-- Menu Bureau (Affichage optimisé uniquement sur ordinateurs lg:flex pour éviter les chevauchements) -->
-            <div class="hidden lg:flex lg:space-x-6 xl:space-x-10 text-[10px] uppercase tracking-[0.2em] font-bold items-center">
+            <!-- Menu Bureau -->
+            <div class="hidden md:flex space-x-8 text-[10px] uppercase tracking-[0.2em] font-bold items-center">
                 <a href="#accueil" class="hover:text-deep-green transition-colors">Accueil</a>
                 
-                <!-- Dropdown Prestations -->
                 <div class="dropdown">
                     <button class="uppercase tracking-[0.2em] font-bold hover:text-deep-green transition-colors flex items-center gap-1 py-4">
                         Prestations 
@@ -149,245 +115,132 @@
                     </div>
                 </div>
 
-                <a href="#galerie" class="hover:text-deep-green transition-colors">Galerie</a>
-                <a href="#conseils" class="hover:text-deep-green transition-colors text-amber-700">Conseils</a>
                 <a href="#lieux" class="hover:text-deep-green transition-colors">Lieux</a>
-                <a href="#a-propos" class="hover:text-deep-green transition-colors">À Propos</a>
             </div>
 
-            <!-- Action Prendre RDV & Barre Mobile (S'adapte parfaitement) -->
             <div class="flex items-center gap-4">
                 <button onclick="openBooking()" class="bg-deep-green text-white px-6 py-2.5 rounded-full text-[10px] uppercase font-bold tracking-widest shadow-lg hover:opacity-90 transition-all active:scale-95">Prendre RDV</button>
-                <button onclick="toggleMobileMenu()" class="block lg:hidden text-deep-green" aria-label="Menu">
+                <button onclick="toggleMobileMenu()" class="block md:hidden text-deep-green">
                     <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
         </nav>
     </header>
 
-    <!-- MENU MOBILE (Entièrement nettoyé de ses bugs) -->
+    <!-- MENU MOBILE -->
     <div id="mobile-menu-overlay">
-        <button onclick="toggleMobileMenu()" class="absolute top-6 right-6 text-stone-400" aria-label="Fermer">
+        <button onclick="toggleMobileMenu()" class="absolute top-6 right-6 text-stone-400">
             <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
-        <div class="space-y-6 text-2xl font-serif text-deep-green flex flex-col items-center">
+        <div class="space-y-8 text-2xl font-serif text-deep-green flex flex-col items-center">
             <a href="#accueil" onclick="toggleMobileMenu()">Accueil</a>
             <div class="h-px w-12 bg-deep-green/20"></div>
             <a href="#details-soins" onclick="toggleMobileMenu()" class="italic">Le détail des soins</a>
             <a href="#tarifs" onclick="toggleMobileMenu()" class="italic">Le détail des tarifs</a>
             <div class="h-px w-12 bg-deep-green/20"></div>
-            <a href="#galerie" onclick="toggleMobileMenu()">Galerie Photos</a>
-            <a href="#conseils" onclick="toggleMobileMenu()" class="text-amber-800 font-bold">Espace Conseils</a>
             <a href="#lieux" onclick="toggleMobileMenu()">Mes lieux de pratique</a>
-            <a href="#a-propos" onclick="toggleMobileMenu()">À Propos</a>
         </div>
     </div>
 
-    <!-- ACCUEIL / HERO -->
+    <!-- ACCUEIL -->
     <section id="accueil" class="relative h-screen flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-cream opacity-80"></div>
-            <img src="https://images.unsplash.com/photo-1544161515-4af6b1d462c2?auto=format&fit=crop&q=80&w=2000" alt="Soin de massage Massa Dom" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#fdfbf7] opacity-85"></div>
+            <img src="https://images.unsplash.com/photo-1544161515-4af6b1d462c2?auto=format&fit=crop&q=80&w=2000" alt="Soin" class="w-full h-full object-cover">
         </div>
         <div class="container mx-auto px-6 relative z-10 text-center">
             <div class="watermark-container mb-4">
-                <img src="https://vcard.e-com-emma.com/wp-content/uploads/logo-massadom-1.webp" alt="Lotus de Massa Dom" class="watermark-logo-img">
+                <img src="https://vcard.e-com-emma.com/wp-content/uploads/logo-massadom-1.webp" alt="Lotus" class="watermark-logo-img">
                 <h1 class="text-6xl md:text-9xl font-serif gold-outline leading-tight relative">Massa Dom</h1>
             </div>
-            <p class="text-xl md:text-3xl italic font-serif text-stone-700 mb-8 tracking-wide">Reconnectez-vous à l'essentiel</p>
-            
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-                <button onclick="openBooking()" class="bg-deep-green text-white px-10 py-5 rounded-full font-bold shadow-2xl hover:bg-stone-800 transition-all uppercase tracking-widest text-xs w-full sm:w-auto">Réserver mon soin</button>
-                <a href="#conseils" class="bg-white/80 backdrop-blur text-stone-800 border border-stone-200 px-10 py-5 rounded-full font-bold shadow-lg hover:bg-amber-50 transition-all uppercase tracking-widest text-xs w-full sm:w-auto">Lire nos conseils</a>
-            </div>
+            <p class="text-xl md:text-3xl italic font-serif text-stone-700 mb-12 tracking-wide">Reconnectez-vous à l'essentiel</p>
+            <button onclick="openBooking()" class="bg-deep-green text-white px-12 py-5 rounded-full font-bold shadow-2xl hover:bg-stone-800 transition-all uppercase tracking-widest text-sm">Réserver mon soin</button>
         </div>
     </section>
 
-    <div class="container mx-auto px-6 -mt-16 relative z-30 max-w-4xl">
-        <div class="bg-white p-6 rounded-[2rem] shadow-2xl border border-stone-100 flex flex-col md:flex-row items-center gap-4">
-            <div class="w-full relative">
-                <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-stone-400">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                </span>
-                <input id="search-input" onkeyup="searchSite()" type="text" placeholder="Rechercher un soin, un tarif ou un conseil (ex: dos, stress, 80€)..." class="w-full pl-12 pr-4 py-4 rounded-xl border border-stone-200 focus:outline-none focus:border-deep-green text-sm transition-colors">
-            </div>
-            <button onclick="clearSearch()" class="text-xs text-stone-400 hover:text-stone-800 transition-colors uppercase tracking-widest font-bold whitespace-nowrap px-4 py-2">Réinitialiser</button>
-        </div>
-        <div id="search-feedback" class="hidden mt-4 text-center text-sm text-stone-500 italic bg-amber-50 py-2 rounded-xl border border-amber-100"></div>
-    </div>
-
+    <!-- SECTION DÉTAILS DES SOINS -->
     <section id="details-soins" class="py-24 container mx-auto px-6">
         <div class="text-center mb-16">
             <h2 class="text-4xl md:text-5xl font-serif text-deep-green mb-4">Détails des Prestations</h2>
             <p class="italic text-stone-500 max-w-2xl mx-auto leading-relaxed">Choisir le soin qui répond à votre besoin du moment.</p>
         </div>
-        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto searchable-container">
-            <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border border-stone-50 searchable-item hover:shadow-md transition-all">
-                <h3 class="text-2xl font-serif text-deep-green mb-4 italic searchable-text">Massage Énergétique</h3>
-                <p class="text-stone-600 leading-relaxed text-sm searchable-text">Alliance de pressions fluides et de rééquilibrage vibratoire. Ce soin libère les tensions accumulées au niveau du dos, des épaules et des jambes, relance la vitalité globale du corps tout en apaisant durablement le mental et le stress.</p>
+        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border border-stone-50">
+                <h3 class="text-2xl font-serif text-deep-green mb-4 italic">Massage Énergétique</h3>
+                <p class="text-stone-600 leading-relaxed text-sm">Alliance de pressions fluides et de rééquilibrage vibratoire. Ce soin libère les tensions accumulées et relance la vitalité globale du corps tout en apaisant le mental.</p>
             </div>
-            <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border border-stone-50 searchable-item hover:shadow-md transition-all">
-                <h3 class="text-2xl font-serif text-deep-green mb-4 italic searchable-text">Massage Japonais (Kobido)</h3>
-                <p class="text-stone-600 leading-relaxed text-sm searchable-text">Soin d'exception pour le visage and le cou. Alternant manoeuvres lentes et rapides, pétrissage et percussions faciales, il lifte les traits, draine les toxines et redonne un éclat naturel immédiat à la peau tout en relâchant les tensions nerveuses.</p>
+            <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border border-stone-50">
+                <h3 class="text-2xl font-serif text-deep-green mb-4 italic">Massage Japonais (Kobido)</h3>
+                <p class="text-stone-600 leading-relaxed text-sm">Soin d'exception pour le visage. Alternant manoeuvres lentes et rapides, il lifte les traits, draine les toxines et redonne un éclat naturel immédiat à la peau.</p>
             </div>
-            <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border border-stone-50 searchable-item hover:shadow-md transition-all">
-                <h3 class="text-2xl font-serif text-deep-green mb-4 italic searchable-text">Réflexologie Plantaire</h3>
-                <p class="text-stone-600 leading-relaxed text-sm searchable-text">Travail de pression précis sur les zones réflexes du pied pour stimuler et agir sur l'équilibre global de vos organes internes. Idéal pour apaiser l'anxiété, améliorer le sommeil et réguler les troubles digestifs et la fatigue nerveuse.</p>
+            <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border border-stone-50">
+                <h3 class="text-2xl font-serif text-deep-green mb-4 italic">Réflexologie Plantaire</h3>
+                <p class="text-stone-600 leading-relaxed text-sm">Travail précis sur les zones réflexes du pied pour agir sur l'équilibre des organes. Idéal pour le stress, les troubles digestifs et la fatigue nerveuse.</p>
             </div>
-            <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border border-stone-100 bg-deep-green/5 searchable-item hover:shadow-md transition-all">
-                <h3 class="text-2xl font-serif text-deep-green mb-4 italic searchable-text">Accompagnement Psycho-Corporel</h3>
-                <p class="text-stone-600 leading-relaxed text-sm searchable-text">Un cycle sur-mesure de 10 séances au total comprenant 5 séances de 90 minutes en présentiel et 5 séances de 60 minutes en distanciel. Nous utilisons la prise de parole et la mémoire du corps comme portes d'entrée pour identifier et libérer les blocages profonds.</p>
+            <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border border-stone-100 bg-[#005C3D]/5">
+                <h3 class="text-2xl font-serif text-deep-green mb-4 italic">Accompagnement Psycho-Corporel</h3>
+                <p class="text-stone-600 leading-relaxed text-sm">Un cycle de séances pour une transformation durable. Nous utilisons le corps comme porte d'entrée pour identifier et libérer les blocages profonds.</p>
             </div>
         </div>
     </section>
 
-    <section id="tarifs" class="py-24 bg-soft-green">
-        <div class="container mx-auto px-6">
+    <!-- SECTION TARIFS -->
+    <section id="tarifs" class="py-24 bg-stone-50/50">
+        <div class="container mx-auto px-6 max-w-5xl">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-serif text-deep-green mb-4">Tarifs & Temps</h2>
-                <div class="h-1 w-20 bg-deep-green mx-auto rounded-full opacity-20"></div>
+                <h2 class="text-4xl md:text-5xl font-serif text-deep-green mb-4">Nos Tarifs</h2>
+                <p class="italic text-stone-500 max-w-2xl mx-auto leading-relaxed">Des prestations adaptées à vos besoins et à votre rythme.</p>
             </div>
-
-            <div class="max-w-3xl mx-auto bg-white p-8 md:p-12 rounded-[2.5rem] shadow-xl searchable-container">
-                <div class="space-y-8">
-                    <div class="flex justify-between items-center border-b border-stone-100 pb-6 searchable-item">
-                        <div>
-                            <h4 class="text-xl font-serif text-stone-800 searchable-text">Massage (Énergétique / Kobido)</h4>
-                            <p class="text-[10px] text-stone-400 uppercase tracking-widest mt-1 searchable-text">Durée : 1h00 (60 min)</p>
-                        </div>
-                        <span class="text-2xl font-bold text-deep-green shrink-0 ml-4 searchable-text">80€</span>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-[2rem] shadow-sm border border-stone-100 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-2xl font-serif text-deep-green mb-3 italic">Massage Énergétique</h3>
+                        <p class="text-stone-600 text-sm mb-6">Libération des tensions physiques et réinformation vibratoire globale.</p>
                     </div>
-                    <div class="flex justify-between items-center border-b border-stone-100 pb-6 searchable-item">
-                        <div>
-                            <h4 class="text-xl font-serif text-stone-800 searchable-text">Soin Immersion</h4>
-                            <p class="text-[10px] text-stone-400 uppercase tracking-widest mt-1 searchable-text">Durée : 1h30 (90 min)</p>
-                        </div>
-                        <span class="text-2xl font-bold text-deep-green shrink-0 ml-4 searchable-text">110€</span>
+                    <div class="space-y-2 border-t border-stone-100 pt-4">
+                        <div class="flex justify-between font-medium text-stone-700"><span>60 min</span><span class="text-deep-green font-bold">80 €</span></div>
+                        <div class="flex justify-between font-medium text-stone-700"><span>90 min</span><span class="text-deep-green font-bold">110 €</span></div>
+                        <div class="flex justify-between font-medium text-stone-700"><span>120 min</span><span class="text-deep-green font-bold">140 €</span></div>
                     </div>
-                    <div class="flex justify-between items-center border-b border-stone-100 pb-6 searchable-item">
-                        <div>
-                            <h4 class="text-xl font-serif text-stone-800 searchable-text">Soin Signature Profond</h4>
-                            <p class="text-[10px] text-stone-400 uppercase tracking-widest mt-1 searchable-text">Durée : 2h00 (120 min)</p>
-                        </div>
-                        <span class="text-2xl font-bold text-deep-green shrink-0 ml-4 searchable-text">140€</span>
+                </div>
+                <div class="bg-white p-8 rounded-[2rem] shadow-sm border border-stone-100 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-2xl font-serif text-deep-green mb-3 italic">Massage Japonais (Kobido)</h3>
+                        <p class="text-stone-600 text-sm mb-6">Soin liftant, sculptant et énergisant du visage.</p>
                     </div>
-                    <div class="flex justify-between items-center border-b border-stone-100 pb-6 searchable-item">
-                        <div>
-                            <h4 class="text-xl font-serif text-stone-800 searchable-text">Réflexologie Plantaire</h4>
-                            <p class="text-[10px] text-stone-400 uppercase tracking-widest mt-1 searchable-text">Durée : 1h00 (60 min)</p>
-                        </div>
-                        <span class="text-2xl font-bold text-deep-green shrink-0 ml-4 searchable-text">80€</span>
+                    <div class="space-y-2 border-t border-stone-100 pt-4">
+                        <div class="flex justify-between font-medium text-stone-700"><span>60 min</span><span class="text-deep-green font-bold">80 €</span></div>
                     </div>
-                    <div class="flex justify-between items-start md:items-center searchable-item">
-                        <div>
-                            <h4 class="text-xl font-serif text-stone-800 font-bold searchable-text">Cycle Accompagnement</h4>
-                            <p class="text-xs text-stone-500 mt-1 italic leading-relaxed searchable-text">(5 séances en présentiel de 90 minutes, et 5 séances en distanciel de 60 minutes)</p>
-                            <p class="text-[10px] text-stone-400 uppercase tracking-widest mt-1 searchable-text">Programme complet Signature</p>
-                        </div>
-                        <div class="text-right flex items-center shrink-0 ml-4 mt-1 md:mt-0">
-                            <span class="text-sm text-stone-300 line-through mr-3 searchable-text">950€</span>
-                            <span class="text-2xl font-bold text-deep-green searchable-text">600€</span>
-                        </div>
+                </div>
+                <div class="bg-white p-8 rounded-[2rem] shadow-sm border border-stone-100 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-2xl font-serif text-deep-green mb-3 italic">Réflexologie Plantaire</h3>
+                        <p class="text-stone-600 text-sm mb-6">Stimulation des zones réflexes pour relancer l'énergie vitale.</p>
+                    </div>
+                    <div class="space-y-2 border-t border-stone-100 pt-4">
+                        <div class="flex justify-between font-medium text-stone-700"><span>60 min</span><span class="text-deep-green font-bold">80 €</span></div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-[2rem] shadow-sm border-2 border-deep-green/30 flex flex-col justify-between relative overflow-hidden">
+                    <div>
+                        <div class="absolute top-4 right-4 bg-deep-green text-white text-[9px] uppercase tracking-widest px-3 py-1 rounded-full font-bold">Complet</div>
+                        <h3 class="text-2xl font-serif text-deep-green mb-3 italic">Abonnement Annuel</h3>
+                        <p class="text-stone-600 text-sm mb-6">12 séances de 90 min pour un accompagnement régulier.</p>
+                    </div>
+                    <div class="space-y-2 border-t border-stone-100 pt-4">
+                        <div class="flex justify-between font-medium text-stone-700 items-center"><span>12 séances</span><span class="text-deep-green font-bold text-xl">1 100 €</span></div>
+                        <p class="text-xs text-stone-400 italic text-right">Possibilité de règlement en 3 fois</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="conseils" class="py-24 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-serif text-deep-green mb-4">Conseils & Astuces Bien-être</h2>
-                <p class="italic text-stone-500 max-w-2xl mx-auto leading-relaxed">Découvrez nos articles et astuces quotidiennes pour maximiser les bienfaits de vos séances.</p>
-                <div class="h-1 w-20 bg-deep-green mx-auto rounded-full opacity-20 mt-4"></div>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto searchable-container">
-                <div class="bg-[#fcfaf5] p-8 rounded-3xl border border-stone-100 searchable-item hover:-translate-y-1 transition-all">
-                    <span class="text-xs font-bold text-amber-700 uppercase tracking-widest block mb-3">Après Massage</span>
-                    <h3 class="text-xl font-serif text-stone-800 mb-4 searchable-text">Comment prolonger les bienfaits de sa séance ?</h3>
-                    <p class="text-stone-600 text-sm leading-relaxed mb-4 searchable-text">
-                        Après un massage énergétique, votre corps travaille encore. Buvez beaucoup d'eau pour éliminer les toxines libérées, privilégiez un repas léger et évitez les efforts trop violents le soir même pour préserver l'alignement énergétique.
-                    </p>
-                </div>
-                <div class="bg-[#fcfaf5] p-8 rounded-3xl border border-stone-100 searchable-item hover:-translate-y-1 transition-all">
-                    <span class="text-xs font-bold text-amber-700 uppercase tracking-widest block mb-3">Gestion du stress</span>
-                    <h3 class="text-xl font-serif text-stone-800 mb-4 searchable-text">La respiration abdominale contre le stress</h3>
-                    <p class="text-stone-600 text-sm leading-relaxed mb-4 searchable-text">
-                        Pour apaiser le système nerveux entre deux séances de réflexologie, pratiquez la respiration par le ventre : inspirez en gonflant doucement l'abdomen sur 4 secondes, puis expirez lentement sur 6 secondes. Répétez 5 fois pour un calme immédiat.
-                    </p>
-                </div>
-                <div class="bg-[#fcfaf5] p-8 rounded-3xl border border-stone-100 searchable-item hover:-translate-y-1 transition-all">
-                    <span class="text-xs font-bold text-amber-700 uppercase tracking-widest block mb-3">Soin Visage</span>
-                    <h3 class="text-xl font-serif text-stone-800 mb-4 searchable-text">La routine d'auto-massage Kobido à la maison</h3>
-                    <p class="text-stone-600 text-sm leading-relaxed mb-4 searchable-text">
-                        Pour soutenir les effets de votre massage Kobido, effectuez des lissages doux du centre du visage vers l'extérieur chaque soir. Ces simples gestes activent la microcirculation faciale et soutiennent la production naturelle de collagène.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION GALERIE PHOTOS -->
-    <section id="galerie" class="py-24 bg-cream">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-serif text-deep-green mb-4">Galerie Photos</h2>
-                <p class="italic text-stone-500 max-w-2xl mx-auto leading-relaxed">Découvrez l'univers de Massa Dom, le cabinet et les instants de soin.</p>
-                <div class="h-1 w-20 bg-deep-green mx-auto rounded-full opacity-20 mt-4"></div>
-            </div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                <!-- Photo 1 -->
-                <div class="group relative overflow-hidden rounded-[2rem] shadow-md aspect-square bg-stone-100">
-                    <img src="images/galerie-1.jpg" alt="Cabinet Massa Dom" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://i.postimg.cc/d12t6cp5/Massadom-81.jpg'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                        <p class="text-white font-serif text-lg italic">Le Cabinet</p>
-                    </div>
-                </div>
-                <!-- Photo 2 -->
-                <div class="group relative overflow-hidden rounded-[2rem] shadow-md aspect-square bg-stone-100">
-                    <img src="images/galerie-2.jpg" alt="Soin énergétique" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://i.postimg.cc/fL1WMTdP/Massadom-73.jpg'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                        <p class="text-white font-serif text-lg italic">Massage Énergétique</p>
-                    </div>
-                </div>
-                <!-- Photo 3 -->
-                <div class="group relative overflow-hidden rounded-[2rem] shadow-md aspect-square bg-stone-100">
-                    <img src="images/galerie-3.jpg" alt="Huiles de soin" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://i.postimg.cc/VkKLvc0T/Massadom-72.jpg'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                        <p class="text-white font-serif text-lg italic">Huiles & Ambiance</p>
-                    </div>
-                </div>
-                <!-- Photo 4 -->
-                <div class="group relative overflow-hidden rounded-[2rem] shadow-md aspect-square bg-stone-100">
-                    <img src="images/galerie-4.jpg" alt="Soin visage" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://i.ibb.co/xK05B2rt/image.jpg'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                        <p class="text-white font-serif text-lg italic">Soin Kobido</p>
-                    </div>
-                </div>
-                <!-- Photo 5 -->
-                <div class="group relative overflow-hidden rounded-[2rem] shadow-md aspect-square bg-stone-100">
-                    <img src="images/galerie-5.jpg" alt="Pierres chaudes" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://i.postimg.cc/85txNy6g/Massadom-104.jpg'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                        <p class="text-white font-serif text-lg italic">Détente absolue</p>
-                    </div>
-                </div>
-                <!-- Photo 6 -->
-                <div class="group relative overflow-hidden rounded-[2rem] shadow-md aspect-square bg-stone-100">
-                    <img src="images/galerie-6.jpg" alt="Cabinet détails" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://i.postimg.cc/0278YvgS/Massadom-118.jpg'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                        <p class="text-white font-serif text-lg italic">Harmonie</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    <!-- SECTION LIEUX -->
     <section id="lieux" class="py-24 text-center">
         <div class="container mx-auto px-6">
             <h2 class="text-4xl font-serif text-deep-green mb-12">Lieux d'intervention</h2>
-            <div class="grid md:grid-cols-3 gap-6">
+            <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
                 <div class="p-10 bg-white rounded-[2rem] border border-stone-50 shadow-sm">
                     <h3 class="font-serif text-xl mb-1">Crossfit Grillen</h3>
                     <p class="text-deep-green text-[10px] font-bold uppercase tracking-widest">Colmar</p>
@@ -404,25 +257,9 @@
         </div>
     </section>
 
-    <!-- SECTION À PROPOS -->
-    <section id="a-propos" class="py-24 container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center border-t border-stone-100">
-        <div class="flex justify-center">
-            <div class="relative max-w-sm w-full">
-                <div class="absolute -inset-2 bg-deep-green/10 rounded-[2rem] rotate-1"></div>
-                <!-- Portrait avec fallback automatique s'il manque en local -->
-                <img src="images/benoit-portrait.jpg" alt="Benoit" class="relative rounded-2xl shadow-xl w-full h-auto object-contain" onerror="this.src='https://i.postimg.cc/cCV7BXZX/Massadom-125.jpg'">
-            </div>
-        </div>
-        <div class="text-center md:text-left">
-            <h2 class="text-4xl font-serif text-stone-900 mb-8 leading-tight">Moi c'est Benoit</h2>
-            <p class="text-stone-600 leading-relaxed mb-6 text-lg">Mon engagement consiste à entendre vos besoins profonds pour vous proposer un soin personnalisé.</p>
-            <p class="text-stone-600 leading-relaxed text-lg italic">Ma pratique couple le travail manuel du corps au soin énergétique pour un apaisement total.</p>
-        </div>
-    </section>
-
-    <!-- FOOTER / PIED DE PAGE (Mis à jour sans triangle et sans fond vert) -->
+    <!-- FOOTER -->
     <footer class="footer-container">
-        <img src="images/benoit-bandeau.jpg" class="footer-bg-image" alt="Benoit Massa Dom" onerror="this.src='https://i.postimg.cc/GmCq2Wnf/Massadom-15.jpg'">
+        <img src="https://lh3.googleusercontent.com/p/AF1QipM6WQn9aUz7c3QHmWzT_rM-gfDMZM5bjmG4tJkE=s1200" class="footer-bg-image" alt="Benoit Massa Dom">
         <div class="footer-content-overlay text-white text-center">
             <h3 class="text-3xl font-serif gold-outline mb-4">Massa Dom</h3>
             <p class="text-xl tracking-[0.2em] mb-8">06 77 09 69 90</p>
@@ -432,249 +269,29 @@
         </div>
     </footer>
 
-    <!-- NOUVELLE MODALE DE RÉSERVATION ÉTAPE PAR ÉTAPE (CAL.COM) -->
+    <!-- MODALE RDV -->
     <div id="booking-modal" class="modal">
-        <div class="modal-card max-w-lg w-full bg-[#fdfbf7] p-6 sm:p-8 rounded-[2rem] border border-stone-200 shadow-2xl relative max-h-[90vh] overflow-y-auto">
-            <!-- Bouton de fermeture -->
-            <button onclick="closeModals()" class="absolute top-5 right-5 text-2xl text-stone-400 hover:text-stone-700 transition-colors p-2" aria-label="Fermer">×</button>
-
-            <!-- ÉTAPE 1 : CHOIX DU LIEU -->
-            <div id="booking-step-1">
-                <div class="text-center mb-6">
-                    <span class="text-[10px] uppercase font-bold tracking-[0.2em] text-deep-green block mb-1">Étape 1 sur 2</span>
-                    <h3 class="text-2xl font-serif text-deep-green font-bold italic">Où souhaitez-vous recevoir votre séance ?</h3>
-                    <p class="text-stone-500 text-xs mt-1">Sélectionnez le lieu de votre consultation</p>
-                </div>
-
-                <div class="space-y-3">
-                    <!-- Munster -->
-                    <button onclick="selectLocation('munster', 'Munster — Coiff’Emoi')" class="w-full text-left p-4 rounded-2xl border border-stone-200 bg-white hover:border-deep-green hover:bg-deep-green/5 transition-all flex items-center justify-between group active:scale-[0.99]">
-                        <div>
-                            <span class="text-xs uppercase font-bold tracking-widest text-deep-green block">MUNSTER</span>
-                            <span class="text-stone-800 font-serif text-base font-semibold block mt-0.5">Coiff’Emoi</span>
-                        </div>
-                        <svg class="w-5 h-5 text-stone-400 group-hover:text-deep-green group-hover:translate-x-1 transition-all shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                    </button>
-
-                    <!-- Wihr-au-Val -->
-                    <button onclick="selectLocation('wihr', 'Wihr-au-Val — Créa’tif')" class="w-full text-left p-4 rounded-2xl border border-stone-200 bg-white hover:border-deep-green hover:bg-deep-green/5 transition-all flex items-center justify-between group active:scale-[0.99]">
-                        <div>
-                            <span class="text-xs uppercase font-bold tracking-widest text-deep-green block">WIHR-AU-VAL</span>
-                            <span class="text-stone-800 font-serif text-base font-semibold block mt-0.5">Créa’tif</span>
-                        </div>
-                        <svg class="w-5 h-5 text-stone-400 group-hover:text-deep-green group-hover:translate-x-1 transition-all shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                    </button>
-
-                    <!-- Colmar -->
-                    <button onclick="selectLocation('colmar', 'Colmar — KL Coiffeur Studio')" class="w-full text-left p-4 rounded-2xl border border-stone-200 bg-white hover:border-deep-green hover:bg-deep-green/5 transition-all flex items-center justify-between group active:scale-[0.99]">
-                        <div>
-                            <span class="text-xs uppercase font-bold tracking-widest text-deep-green block">COLMAR</span>
-                            <span class="text-stone-800 font-serif text-base font-semibold block mt-0.5">KL Coiffeur Studio</span>
-                        </div>
-                        <svg class="w-5 h-5 text-stone-400 group-hover:text-deep-green group-hover:translate-x-1 transition-all shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                    </button>
-
-                    <!-- Wettolsheim -->
-                    <button onclick="selectLocation('wettolsheim', 'Cabinet Wettolsheim — 27 rue des Merisiers, 68920 Wettolsheim')" class="w-full text-left p-4 rounded-2xl border border-stone-200 bg-white hover:border-deep-green hover:bg-deep-green/5 transition-all flex items-center justify-between group active:scale-[0.99]">
-                        <div>
-                            <span class="text-xs uppercase font-bold tracking-widest text-deep-green block">WETTOLSHEIM</span>
-                            <span class="text-stone-800 font-serif text-base font-semibold block mt-0.5">Cabinet Wettolsheim</span>
-                            <span class="text-stone-500 text-xs block mt-0.5">27 rue des Merisiers, 68920 Wettolsheim</span>
-                        </div>
-                        <svg class="w-5 h-5 text-stone-400 group-hover:text-deep-green group-hover:translate-x-1 transition-all shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                    </button>
-
-                    <!-- À Domicile -->
-                    <button onclick="selectLocation('domicile', 'À domicile / Lieu de séjour')" class="w-full text-left p-4 rounded-2xl border border-stone-200 bg-white hover:border-deep-green hover:bg-deep-green/5 transition-all flex items-center justify-between group active:scale-[0.99]">
-                        <div>
-                            <span class="text-xs uppercase font-bold tracking-widest text-deep-green block">À DOMICILE</span>
-                            <span class="text-stone-800 font-serif text-base font-semibold block mt-0.5">À votre domicile ou sur votre lieu de séjour</span>
-                        </div>
-                        <svg class="w-5 h-5 text-stone-400 group-hover:text-deep-green group-hover:translate-x-1 transition-all shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                    </button>
-                </div>
-            </div>
-
-            <!-- ÉTAPE 2 : CHOIX DE LA DURÉE -->
-            <div id="booking-step-2" class="hidden">
-                <button onclick="backToStep1()" class="inline-flex items-center text-xs text-stone-500 hover:text-deep-green font-semibold mb-4 transition-colors">
-                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                    ← Changer de lieu
-                </button>
-
-                <div class="text-center mb-6">
-                    <span class="text-[10px] uppercase font-bold tracking-[0.2em] text-deep-green block mb-1">Étape 2 sur 2</span>
-                    <h3 class="text-2xl font-serif text-deep-green font-bold italic">Choisissez votre séance</h3>
-                    <p id="selected-location-badge" class="text-xs text-stone-600 mt-1 font-medium bg-stone-100 inline-block px-3 py-1 rounded-full"></p>
-                </div>
-
-                <div class="space-y-3">
-                    <!-- Option 60 minutes -->
-                    <button onclick="confirmDuration(60)" class="w-full text-left p-5 rounded-2xl border-2 border-stone-200 bg-white hover:border-deep-green hover:bg-deep-green/5 transition-all flex items-center justify-between group active:scale-[0.99]">
-                        <div>
-                            <span class="text-stone-900 font-serif text-lg font-bold block">60 minutes</span>
-                            <span class="text-xs text-stone-500 mt-0.5 block">Soin complet personnalisé</span>
-                        </div>
-                        <span class="text-xl font-bold text-deep-green shrink-0 ml-3">80 €</span>
-                    </button>
-
-                    <!-- Option 90 minutes -->
-                    <button onclick="confirmDuration(90)" class="w-full text-left p-5 rounded-2xl border-2 border-stone-200 bg-white hover:border-deep-green hover:bg-deep-green/5 transition-all flex items-center justify-between group active:scale-[0.99]">
-                        <div>
-                            <span class="text-stone-900 font-serif text-lg font-bold block">90 minutes</span>
-                            <span class="text-xs text-stone-500 mt-0.5 block">Immersion & rééquilibrage profond</span>
-                        </div>
-                        <span class="text-xl font-bold text-deep-green shrink-0 ml-3">110 €</span>
-                    </button>
-                </div>
+        <div class="modal-card text-center shadow-2xl">
+            <h3 class="text-2xl font-serif text-deep-green mb-8 italic">Prendre rendez-vous</h3>
+            <div class="space-y-4">
+                <a href="tel:+33677096990" class="block p-5 bg-deep-green text-white rounded-2xl font-bold hover:bg-stone-800 transition-all shadow-md uppercase tracking-widest text-xs">Appeler Benoit</a>
+                <button onclick="closeModals()" class="mt-8 text-stone-400 hover:text-stone-900 transition-colors text-xs underline">Fermer la fenêtre</button>
             </div>
         </div>
     </div>
 
     <script>
-        // Configuration des destinations Cal.com selon le lieu et la durée
-        const CAL_BOOKING_URLS = {
-            munster: {
-                60: 'https://cal.com/massa-dom/massa-dom-60-min-coiff-emoi-munster',
-                90: 'https://cal.com/massa-dom/massa-dom-90-min-coiff-emoi-munster'
-            },
-            wihr: {
-                60: 'https://cal.com/massa-dom/massa-dom-60-min-crea-tif-wihr-au-val',
-                90: 'https://cal.com/massa-dom/massa-dom-90-min-crea-tif-wihr-au-val'
-            },
-            colmar: {
-                60: 'https://cal.com/massa-dom/massa-dom-60-min-kl-coiffeur-studio-colmar',
-                90: 'https://cal.com/massa-dom/massa-dom-90-min-kl-coiffeur-studio-colmar'
-            },
-            wettolsheim: {
-                60: 'https://cal.com/massa-dom/massa-dom-60-min-cabinet-wettolsheim',
-                90: 'https://cal.com/massa-dom/massa-dom-90-min-cabinet-wettolsheim'
-            },
-            domicile: {
-                60: 'https://cal.com/massa-dom/60minutes',
-                90: 'https://cal.com/massa-dom/seance-massa-dom-90-minutes'
-            }
-        };
-
-        let currentBookingLocation = null;
-
-        // Ouverture de la modale de réservation (partagée par tous les boutons de prise de RDV)
-        function openBooking() { 
-            closeModals();
-            currentBookingLocation = null;
-            document.getElementById('booking-step-1').classList.remove('hidden');
-            document.getElementById('booking-step-2').classList.add('hidden');
-            document.getElementById('booking-modal').style.display = 'flex'; 
-            document.body.style.overflow = 'hidden'; 
-        }
-
-        // Étape 1 : Enregistrement du lieu choisi et passage à l'étape 2
-        function selectLocation(locationKey, locationLabel) {
-            currentBookingLocation = locationKey;
-            document.getElementById('selected-location-badge').innerText = locationLabel;
-            document.getElementById('booking-step-1').classList.add('hidden');
-            document.getElementById('booking-step-2').classList.remove('hidden');
-        }
-
-        // Retour à l'étape 1
-        function backToStep1() {
-            document.getElementById('booking-step-2').classList.add('hidden');
-            document.getElementById('booking-step-1').classList.remove('hidden');
-        }
-
-        // Étape 2 : Choix de la durée et ouverture de la page Cal.com exacte
-        function confirmDuration(durationMinutes) {
-            if (!currentBookingLocation || !CAL_BOOKING_URLS[currentBookingLocation]) {
-                return;
-            }
-            const destinationUrl = CAL_BOOKING_URLS[currentBookingLocation][durationMinutes];
-            if (destinationUrl) {
-                window.open(destinationUrl, '_blank', 'noopener,noreferrer');
-                closeModals();
-            }
-        }
-        
+        function openBooking() { closeModals(); document.getElementById('booking-modal').style.display = 'block'; document.body.style.overflow = 'hidden'; }
         function closeModals() { 
-            const bookingModal = document.getElementById('booking-modal');
-            if (bookingModal) bookingModal.style.display = 'none'; 
-            const mobileMenu = document.getElementById('mobile-menu-overlay');
-            if (mobileMenu) mobileMenu.style.display = 'none'; 
+            document.getElementById('booking-modal').style.display = 'none'; 
+            document.getElementById('mobile-menu-overlay').style.display = 'none'; 
             document.body.style.overflow = 'auto'; 
         }
-        
         function toggleMobileMenu() { 
             const m = document.getElementById('mobile-menu-overlay'); 
             const isV = m.style.display === 'flex'; 
             m.style.display = isV ? 'none' : 'flex'; 
             document.body.style.overflow = isV ? 'auto' : 'hidden'; 
-        }
-
-        // Moteur de recherche temps-réel (Search Engine)
-        function searchSite() {
-            const query = document.getElementById('search-input').value.toLowerCase().trim();
-            const items = document.querySelectorAll('.searchable-item');
-            const feedback = document.getElementById('search-feedback');
-            let foundCount = 0;
-
-            if (query === "") {
-                clearSearch();
-                return;
-            }
-
-            items.forEach(item => {
-                const textElements = item.querySelectorAll('.searchable-text');
-                let matches = false;
-
-                textElements.forEach(el => {
-                    const originalText = el.getAttribute('data-original') || el.innerText;
-                    if (!el.getAttribute('data-original')) {
-                        el.setAttribute('data-original', originalText);
-                    }
-
-                    if (originalText.toLowerCase().includes(query)) {
-                        matches = true;
-                        
-                        // Surlignage du terme recherché
-                        const regex = new RegExp(`(${query})`, 'gi');
-                        el.innerHTML = originalText.replace(regex, '<span class="search-highlight">$1</span>');
-                    } else {
-                        el.innerHTML = originalText;
-                    }
-                });
-
-                if (matches) {
-                    item.style.display = "";
-                    foundCount++;
-                } else {
-                    item.style.display = "none";
-                }
-            });
-
-            // Affichage du retour utilisateur
-            if (foundCount > 0) {
-                feedback.classList.remove('hidden');
-                feedback.innerText = `We found ${foundCount} elements matching your search.`;
-            } else {
-                feedback.classList.remove('hidden');
-                feedback.innerText = "No results found. Try another keyword.";
-            }
-        }
-
-        // Réinitialisation de la recherche
-        function clearSearch() {
-            document.getElementById('search-input').value = "";
-            document.getElementById('search-feedback').classList.add('hidden');
-            
-            const items = document.querySelectorAll('.searchable-item');
-            items.forEach(item => {
-                item.style.display = "";
-                const textElements = item.querySelectorAll('.searchable-text');
-                textElements.forEach(el => {
-                    if (el.getAttribute('data-original')) {
-                        el.innerHTML = el.getAttribute('data-original');
-                    }
-                });
-            });
         }
     </script>
 </body>
