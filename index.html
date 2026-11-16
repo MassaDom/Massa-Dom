@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -22,13 +23,16 @@
             padding: 2rem;
             z-index: 10;
         }
-        .watermark-logo-img {
+        .watermark-video-circle {
             position: absolute;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            width: 160%;
-            height: auto;
-            opacity: 0.12;
+            width: 140%;
+            height: 140%;
+            max-width: none;
+            object-fit: cover;
+            border-radius: 50%;
+            opacity: 0.18;
             z-index: -1;
             pointer-events: none;
         }
@@ -96,7 +100,7 @@
     <header class="fixed w-full z-50 glass border-b border-stone-100">
         <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
             <a href="#accueil" class="flex items-center space-x-3 shrink-0">
-                <img src="https://vcard.e-com-emma.com/wp-content/uploads/logo-massadom-1.webp" alt="Logo Massa Dom" class="w-10 h-10 object-contain">
+                <img src="logo.jpg" alt="Logo Massa Dom" class="w-10 h-10 object-cover rounded-full">
                 <span class="text-xl font-serif font-bold gold-outline tracking-wider uppercase">MASSA DOM</span>
             </a>
             
@@ -151,7 +155,9 @@
         </div>
         <div class="container mx-auto px-6 relative z-10 text-center">
             <div class="watermark-container mb-4">
-                <img src="https://vcard.e-com-emma.com/wp-content/uploads/logo-massadom-1.webp" alt="Lotus" class="watermark-logo-img">
+                <video autoplay muted loop playsinline class="watermark-video-circle">
+                    <source src="video-massage.mp4" type="video/mp4">
+                </video>
                 <h1 class="text-6xl md:text-9xl font-serif gold-outline leading-tight relative">Massa Dom</h1>
             </div>
             <p class="text-xl md:text-3xl italic font-serif text-stone-700 mb-12 tracking-wide">Reconnectez-vous à l'essentiel</p>
@@ -237,28 +243,28 @@
         </div>
     </section>
 
-    
-<!-- SECTION GALERIE PHOTOS -->
-<section id="galerie" class="py-24 container mx-auto px-6">
-    <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-5xl font-serif text-deep-green mb-4">Galerie Photos</h2>
-        <p class="italic text-stone-500 max-w-2xl mx-auto leading-relaxed">Un aperçu de l'atmosphère et de l'univers des soins Massa Dom.</p>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-        <div class="overflow-hidden rounded-[2rem] shadow-sm border border-stone-100 h-72">
-            <img src="cabinet-presentation-massa-dom.png" alt="Cabinet de présentation" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+   <!-- SECTION GALERIE PHOTOS -->
+    <section id="galerie" class="py-24 container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-serif text-deep-green mb-4">Galerie Photos</h2>
+            <p class="italic text-stone-500 max-w-2xl mx-auto leading-relaxed">Un aperçu de l'atmosphère et de l'univers des soins Massa Dom.</p>
         </div>
-        <div class="overflow-hidden rounded-[2rem] shadow-sm border border-stone-100 h-72">
-            <img src="Présentation cabinet ambiance.png" alt="Ambiance cabinet" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            <div class="overflow-hidden rounded-[2rem] shadow-sm border border-stone-100 h-72">
+                <img src="Cabinet de présentation photo Massa Dom.png" alt="Cabinet de présentation" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="overflow-hidden rounded-[2rem] shadow-sm border border-stone-100 h-72">
+                <img src="Présentation cabinet ambiance.png" alt="Ambiance cabinet" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="overflow-hidden rounded-[2rem] shadow-sm border border-stone-100 h-72">
+                <img src="Un aperçu du cabinet Wettolsheim.jpg" alt="Cabinet Wettolsheim" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="overflow-hidden rounded-[2rem] shadow-sm border border-stone-100 h-72">
+                <img src="Massa Dom à Wettolsheim près Colmar.jpg" alt="Massa Dom Wettolsheim" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+            </div>
         </div>
-        <div class="overflow-hidden rounded-[2rem] shadow-sm border border-stone-100 h-72">
-            <img src="apercu-cabinet-wettolsheim.png" alt="Cabinet Wettolsheim" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
-        </div>
-        <div class="overflow-hidden rounded-[2rem] shadow-sm border border-stone-100 h-72">
-            <img src="Massa Dom à Wettolsheim près Colmar.jpg" alt="Massa Dom Wettolsheim" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
-        </div>
-    </div>
-</section>
+    </section>
+
     <!-- SECTION LIEUX -->
     <section id="lieux" class="py-24 text-center bg-stone-50/50">
         <div class="container mx-auto px-6">
@@ -320,3 +326,5 @@
     </script>
 </body>
 </html>
+
+```
